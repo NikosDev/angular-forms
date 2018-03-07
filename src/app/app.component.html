@@ -1,4 +1,4 @@
-<div class="jumbotron jumbotron-fluid bg-primary">
+<!-- <div class="jumbotron jumbotron-fluid bg-primary">
   <div class="container">
     <h1 class="display-3">Angular Reactive Forms</h1>
     <p class="lead">This is a modified jumbotron that occupies
@@ -8,4 +8,20 @@
 
 <div class="container">
   <app-form></app-form>
+</div> -->
+
+<div>
+  <div *ngFor="let s of appointmentStatus">
+    <input  type="checkbox" [(ngModel)]="s.checked" (click)="updateFilter(s)"  >{{s.status}}
+  </div>
+
+  <div *ngFor="let n of color">
+    <input  type="checkbox" [(ngModel)]="n.checked" (click)="updateFilter(n)"  >{{n.status}}
+  </div>
+
+  <ul>
+      <div *ngFor="let a of allAppointments | filterPipe: filterArr">
+          ID: {{a.id}}, STATUS: {{a.status}}
+      </div>
+  </ul>
 </div>
