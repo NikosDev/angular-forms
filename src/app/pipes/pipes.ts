@@ -8,7 +8,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FilterPipe implements PipeTransform {
     transform(value: any, args?: any[]): any {
         return  value.filter(item => {
-            return args.length ? args.indexOf(item.status) != -1 : value;
-        });
+            return args.length ? args.indexOf(item.name) != -1 : value;
+        })
     }
 }
+

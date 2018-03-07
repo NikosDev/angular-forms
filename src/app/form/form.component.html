@@ -1,4 +1,4 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit">
+<form [formGroup]="form" (ngSubmit)="onsubmit">
   <div formGroupName="store">
     <input type="text" formControlName="branch" placeholder="Branch ID">
     <div class="error" *ngIf="form.get('store.branch').hasError('required') && form.get('store.branch').touched">

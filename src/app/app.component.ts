@@ -1,5 +1,5 @@
 import { Component, Pipe, PipeTransform } from '@angular/core';
-import { FilterPipe } from "./pipes/pipes";
+import { NgStyle } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -10,29 +10,27 @@ import { FilterPipe } from "./pipes/pipes";
 
 export class AppComponent {
   filterArr = [];
-  appointmentStatus = [{checked:false,status:'dispatched', color:'red'},{checked:false,status:'open', color:'blue'}, {checked:false,status:'closed', color:'green'}]
-  color =[{checked:false,status:'red'},{checked:false,status:'blue'},{checked:false,status:'green'}]
+  cpuName = [{checked:false,name:'Intel'},{checked:false,name:'AMD'}]
+  cpuCode =[{checked:false,name:'i5'},{checked:false,name:'i7'},{checked:false,name:'ryzen7'}]
   name:string;
-  test: any = 'nik';
 
-  allAppointments = [
-    {id:1, status:'dispatched', color:'red'},
-    {id:2, status:'dispatched', color:'blue'},
-    {id:3, status:'dispatched', color:'green'},
-    {id:4, status:'open', color:'blue'},
-    {id:5, status:'open', color:'green'},
-    {id:6, status:'closed', color:'red'}
+  allCpu = [
+    {id:1, name:'Intel', code:'i5'},
+    {id:2, name:'Intel', code:'i5'},
+    {id:3, name:'AMD', code:'ryzen7'},
+    {id:4, name:'Intel', code:'i7'},
+    {id:5, name:'AMD', code:'ryzen7'},
+    {id:6, name:'Intel', code:'i7'}
   ]
 
-  todaysAppointments = this.allAppointments;
   
   updateFilter(option) {
     if(!option.checked) {
-      this.filterArr.push(option.status);
+      this.filterArr.push(option.name);
       console.log(this.filterArr);
     }
     else {
-      let index = this.filterArr.indexOf(option.status);
+      let index = this.filterArr.indexOf(option.name);
       this.filterArr.splice(index, 1);
     }
   }
